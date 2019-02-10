@@ -62,16 +62,24 @@
                 margin-bottom: 30px;
             }
         </style>
+
+        @yield('css')
     </head>
     <body>
         <div class="flex-center position-ref">
             <div class="top-right links">
-                <a href="{{ url('/') }}">Home</a>
+                <a href="{{ route('home') }}">Home</a>
             </div>
 
             <div class="content">
                 @yield('body')
             </div>
         </div>
+
+        <script
+                src="https://code.jquery.com/jquery-2.2.4.min.js"
+                integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+                crossorigin="anonymous"></script>
+        @yield('js')
     </body>
 </html>

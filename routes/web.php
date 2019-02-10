@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', 'HomeController@Posts');
+Route::get('/', 'HomeController@Posts')->name('home');
 
-Route::get('/post/{id}', 'HomeController@onePost');
+Route::get('fetch_posts', 'HomeController@FetchPosts')->name('fetch_posts');
+Route::get('fetch_comments', 'HomeController@FetchComments')->name('fetch_comments');
 
-Route::get('fetch_posts', 'HomeController@FetchPosts');
-Route::get('fetch_comments', 'HomeController@FetchComments');
+Route::get('/post/{id}', 'HomeController@onePost')->name('view_post');
+Route::post('/comment', 'HomeController@addComment')->name('add_comment');
