@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('posts');
-});
+Route::get('/', 'HomeController@Posts');
+
+Route::get('/post/{id}', 'HomeController@onePost');
+
+Route::get('fetch_posts', 'HomeController@FetchPosts');
+Route::get('fetch_comments', 'HomeController@FetchComments');

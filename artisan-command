@@ -13,6 +13,9 @@ Create Commands
 php artisan make:command FetchPosts
 php artisan make:command FetchComments
 
+
+php artisan vendor:publish --tag=laravel-pagination
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 php artisan fetch:posts
 php artisan fetch:comments
