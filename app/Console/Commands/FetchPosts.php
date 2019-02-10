@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Post;
 use Illuminate\Console\Command;
 
 class FetchPosts extends Command
@@ -37,7 +38,21 @@ class FetchPosts extends Command
      */
     public function handle()
     {
-        $this->info('Fetch Posts');
-        $this->info('Finished');
+        $this->info('Fetch Posts, No Duplicates');
+
+        $url = "https://jsonplaceholder.typicode.com/posts";
+        $items = json_decode(file_get_contents($url), true);
+
+        $ret = [0,0];
+
+        $model = Post::class;
+        foreach($items as $item){
+            $ret[1]++;
+            if($model::find($item['id'])) continue;
+            $model::create($item);
+            $ret[0]++;
+        }
+
+        $this->info("Finished, {$ret[0]} imported, {$ret[1]} total");
     }
 }
