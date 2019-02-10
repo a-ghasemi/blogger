@@ -1,8 +1,18 @@
+-------------------------------------------------------
+Create Tables
+-------------------------------------------------------
 php artisan make:migration create_posts_table
 php artisan make:migration create_comments_table
 php artisan make:model Post
 php artisan make:model Comment
+php artisan migrate
 
-php artisan make:job FetchPosts
-php artisan make:job FetchComments
+-------------------------------------------------------
+Create Commands
+-------------------------------------------------------
+php artisan make:command FetchPosts
+php artisan make:command FetchComments
 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+php artisan fetch:posts
+php artisan fetch:comments
