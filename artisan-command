@@ -19,3 +19,4 @@ php artisan vendor:publish --tag=laravel-pagination
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 php artisan fetch:posts
 php artisan fetch:comments
+
