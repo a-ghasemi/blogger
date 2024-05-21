@@ -41,15 +41,17 @@ class FetchComments extends Command
         $this->info('Fetch Comments, No Duplicates');
 
 //        $url = urlencode("https://jsonplaceholder.typicode.com/comments");
-        $url = "https://jsonplaceholder.typicode.com/comments";
+        $url = 'https://jsonplaceholder.typicode.com/comments';
         $items = json_decode(file_get_contents($url), true);
 
-        $ret = [0,0];
+        $ret = [0, 0];
 
         $model = Comment::class;
-        foreach($items as $item){
+        foreach ($items as $item) {
             $ret[1]++;
-            if($model::find($item['id'])) continue;
+            if ($model::find($item['id'])) {
+                continue;
+            }
             $model::create($item);
             $ret[0]++;
         }
